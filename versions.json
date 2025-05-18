@@ -1,6 +1,6 @@
 [
     {
-        "name": "Global Live",
+        "name": "global-live",
         "branch": "prod",
         "cdn": [
             "alicdn",
@@ -11,27 +11,7 @@
         "hash": "obOHXFrFanqsaIEOmuKroCcbZkQRBC7c"
     },
     {
-        "name": "CN Live",
-        "branch": "prod-cn",
-        "cdn": [
-            "alicdn"
-        ],
-        "game_id": "G152",
-        "unk_id": "10003",
-        "hash": "Y8xXrXk65DqFHEDgApn3cpK5lfczpFx5"
-    },
-    {
-        "name": "Unknown Live",
-        "branch": "prod-cn",
-        "cdn": [
-            "alicdn"
-        ],
-        "game_id": "G152",
-        "unk_id": "10004",
-        "hash": "j5GWFuUFlb8N31Wi2uS3ZAVHcb7ZGN7y"
-    },
-    {
-        "name": "Global Beta",
+        "name": "global-beta",
         "branch": "prod",
         "cdn": [
             "alicdn"
@@ -41,7 +21,17 @@
         "hash": "HiDX7UaJOXpKl3pigJwVxhg5z1wllus5"
     },
     {
-        "name": "CN Beta",
+        "name": "cn-live",
+        "branch": "prod-cn",
+        "cdn": [
+            "alicdn"
+        ],
+        "game_id": "G152",
+        "unk_id": "10003",
+        "hash": "Y8xXrXk65DqFHEDgApn3cpK5lfczpFx5"
+    },
+    {
+        "name": "cn-beta",
         "branch": "prod-cn",
         "cdn": [
             "alicdn"
@@ -49,5 +39,15 @@
         "game_id": "G152",
         "unk_id": "10008",
         "hash": "Pa0Q0EMFxukjEqX33pF9Uyvdc8MaGPSz"
+    },
+    {
+        "name": "unknown-live",
+        "branch": "prod-cn",
+        "cdn": [
+            "alicdn"
+        ],
+        "game_id": "G152",
+        "unk_id": "10004",
+        "hash": "j5GWFuUFlb8N31Wi2uS3ZAVHcb7ZGN7y"
     }
 ]
