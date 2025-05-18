@@ -84,8 +84,13 @@ pub async fn download_file(
     tokio::fs::create_dir_all(path.parent().unwrap()).await?;
 
     let response = client.get(url).send().await?;
+
+    let mut text = response.text().await?;
+    let json: serde_json::Value = serde_json::from_str(&text)?;
+    text = serde_json::to_string_pretty(&json)?;
+
     let mut file = tokio::fs::File::create(path).await?;
-    file.write_all(response.bytes().await?.as_ref()).await?;
+    file.write_all(text.as_bytes()).await?;
 
     Ok(())
 }
