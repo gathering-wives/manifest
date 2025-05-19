@@ -54,10 +54,7 @@ pub async fn download_launcher(
         "https://{}-{}-gamestarter.kurogame.com/launcher/launcher/{}_{}/{}/index.json",
         version.branch, version.cdn[0], version.unk_id, version.hash, version.game_id
     );
-    let path = format!(
-        "launcher/{}_{}_{}/index.json",
-        version.game_id, version.unk_id, version.hash
-    );
+    let path = format!("launcher/{}/index.json", version.name);
 
     download_file(client, &url, &path).await
 }
@@ -70,10 +67,7 @@ pub async fn download_game(
         "https://{}-{}-gamestarter.kurogame.com/launcher/game/{}/{}_{}/index.json",
         version.branch, version.cdn[0], version.game_id, version.unk_id, version.hash
     );
-    let path = format!(
-        "game/{}_{}_{}/index.json",
-        version.game_id, version.unk_id, version.hash
-    );
+    let path = format!("game/{}/index.json", version.name);
 
     download_file(client, &url, &path).await
 }
