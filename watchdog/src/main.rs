@@ -16,8 +16,11 @@ pub struct ManifestVersion {
 
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let content = std::fs::read_to_string("versions.json")?;
+    let content = tokio::fs::read_to_string("versions.json").await?;
     let manifest = serde_json::from_str::<Vec<ManifestVersion>>(&content)?;
+
+    _ = tokio::fs::remove_dir_all("game").await;
+    _ = tokio::fs::remove_dir_all("launcher").await;
 
     let client = reqwest::Client::new();
     let mut tasks = vec![];
