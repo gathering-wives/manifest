@@ -1,0 +1,5 @@
+Client/Binaries/Win64/AntiCheatExpert/*
+Client/Binaries/Win64/Client-Win64-Shipping.exe
+Client/Binaries/Win64/Client-Win64-ShippingBase.dll
+Client/Content/Paks/pakchunk0-WindowsNoEditor.pak
+Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe
