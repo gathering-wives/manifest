@@ -7,17 +7,55 @@ on:
 
 jobs:
   watchdog:
+    name: Watchdog
     runs-on: ubuntu-latest
+    outputs:
+      updates: ${{ steps.check.outputs.updates }}
+      has_updates: ${{ steps.check.outputs.has_updates }}
     permissions:
       contents: write
+    env:
+      CARGO_TERM_COLOR: always
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-all-crates: true
+          workspaces: "./src/watchdog"
       - name: Run watchdog
-        run: cargo run --manifest-path ./watchdog/Cargo.toml
+        run: cargo run --manifest-path ./src/watchdog/Cargo.toml
       - name: Check for changes
         id: check
         run: |
+          entries=$(jq -r '.[] | .name' versions.json)
+          updates="[]"
+          has_updates=false
+
+          append_updates() {
+              updates=$(echo "$updates" | jq ". + [$(jq ".[] | select(.name == \"$1\")" versions.json)]")
+              has_updates=true
+          }
+
+          # Check for version changes in individual _game_ entries
+          for entry in $entries; do
+            if [ ! -f "game/$entry/info.json" ]; then
+              append_updates "$entry"
+              continue
+            fi
+
+            index_version=$(jq -r '.default.version' game/$entry/index.json)
+            info_version=$(jq -r '.version' game/$entry/info.json)
+            if [ "$index_version" != "$info_version" ]; then
+              append_updates "$entry"
+            fi
+          done
+
+          # Output updates
+          echo "updates={\"include\":$(echo "$updates" | jq -c .)}" >> $GITHUB_OUTPUT
+          echo "has_updates=$has_updates" >> $GITHUB_OUTPUT
+
+          # Check for any changes at all
           if [ -n "$(git status --porcelain)" ]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
@@ -31,3 +69,92 @@ jobs:
           git add .
           git commit -m "Update"
           git push
+  dump-games:
+    name: Dump ${{ matrix.name }}
+    needs: watchdog
+    if: needs.watchdog.outputs.has_updates == 'true'
+    runs-on: windows-latest
+    strategy:
+      matrix: ${{ fromJSON(needs.watchdog.outputs.updates) }}
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download required files
+        shell: pwsh
+        working-directory: ${{ runner.temp }}
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/gathering-wives/downloader/releases/download/v0.1.0/downloader.zip" -OutFile downloader.zip
+          Expand-Archive -Path downloader.zip -DestinationPath .
+          Invoke-WebRequest -Uri "https://github.com/gathering-wives/dumper/releases/download/v0.1.0/dumper.zip" -OutFile dumper.zip
+          Expand-Archive -Path dumper.zip -DestinationPath .
+          Invoke-WebRequest -Uri "https://github.com/gathering-wives/injector/releases/download/v0.1.1/injector.zip" -OutFile injector.zip
+          Expand-Archive -Path injector.zip -DestinationPath .
+          Invoke-WebRequest -Uri "https://github.com/GHFear/AESDumpster/releases/download/1.2.5/AESDumpster-Win64.exe" -OutFile AESDumpster.exe
+          ls
+      - name: Download game
+        shell: pwsh
+        working-directory: ${{ runner.temp }}
+        run: |
+          $url = "https://${{ matrix.branch }}-${{ matrix.cdn[0] }}-gamestarter.kurogame.com/launcher/game/${{ matrix.game_id }}/${{ matrix.unk_id }}_${{ matrix.hash }}/index.json"
+          .\downloader.exe -i $url -f "${{ github.workspace }}/downloader_filelist.txt" -o game/
+      - name: Install Prerequisites
+        working-directory: ${{ runner.temp }}
+        run: |
+          .\game\Engine\Extras\Redist\en-us\UE4PrereqSetup_x64.exe /install /quiet /norestart
+          Wait-Process UE4PrereqSetup_x64
+      - name: Inject dumper
+        shell: pwsh
+        working-directory: ${{ runner.temp }}
+        run: |
+          $content = @"
+          executable_path = '${{ runner.temp }}\game\Client\Binaries\Win64\Client-Win64-Shipping.exe'
+          dependencies = ['${{ runner.temp }}\dumper.dll']
+          "@
+          Set-Content -Path injector.toml -Value $content
+          .\injector.exe -c injector.toml
+      - name: Wait for game to exit
+        shell: pwsh
+        run: Wait-Process Client-Win64-Shipping
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-all-crates: true
+          workspaces: "./src/dumper"
+      - name: Run dumper
+        shell: pwsh
+        run: |
+          $index_version = jq -r '.default.version' "game/${{ matrix.name }}/index.json"
+          cargo run --manifest-path ./src/dumper/Cargo.toml -- -a "${{ runner.temp }}\AESDumpster.exe" -b "${{ runner.temp }}\game\Client\Binaries\Win64\Client-Win64-Shipping.dmp" -v $index_version -o "game/${{ matrix.name }}/info.json"
+      - name: Commit changes
+        run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update ${{ matrix.name }}"
+
+          $WAIT_SECONDS = 5
+          $MAX_RETRIES = 15
+          $RETRIES = 0
+
+          # Try to push the changes
+          while ($RETRIES -lt $MAX_RETRIES) {
+              Write-Host "Trying to push changes... (attempt $RETRIES)"
+              git pull --rebase
+              git push
+
+              if ($LASTEXITCODE -eq 0) {
+                  Write-Host "Push succeeded."
+                  break
+              }
+
+              Write-Host "Push failed. Retrying in $WAIT_SECONDS seconds..."
+              Start-Sleep -Seconds $WAIT_SECONDS
+              $RETRIES++
+          }
+
+          # Check if we exhausted all retries
+          if ($RETRIES -eq $MAX_RETRIES) {
+              Write-Host "ERROR: Failed to push after $MAX_RETRIES attempts"
+              exit 1
+          }
