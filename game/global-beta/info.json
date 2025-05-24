@@ -1,0 +1,17 @@
+{
+  "version": "2.4.0",
+  "pak_keys": [
+    {
+      "key": "0x7AA624C7CA63A4116129CECC5BD25C117404940AE6CBCBFD071D11F9DCF64A86",
+      "entropy": 3.768233
+    },
+    {
+      "key": "0xFF5123559EA782008978B82BE7022ED32FBBBF2F1701E8C75F4BECE1CA106D90",
+      "entropy": 3.812042
+    }
+  ],
+  "net_keys": {
+    "key": "t+AEu5SGdpz06tomonajLMau9AJgmyTvVhz9VtGf1+0=",
+    "iv": "fprc5lBWADQB7tim0R2JxQ=="
+  }
+}
