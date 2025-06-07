@@ -1,0 +1,72 @@
+{
+  "crashInitSwitch": 1,
+  "default": {
+    "cdnList": [
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 1428,
+        "url": "https://hw-pcdownload-qcloud.aki-game.net/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 6647,
+        "url": "https://hw-pcdownload-aws.aki-game.net/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 3768,
+        "url": "https://hw-pcdownload-akamai.aki-game.net/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 0,
+        "url": "https://pcdownload-huoshan.aki-game.net/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 0,
+        "url": "https://hw-pcdownload-aliyun.aki-game.net/"
+      }
+    ],
+    "changelog": {
+      "de": "Funktionen teilweise optimiert",
+      "en": "Part of the functions optimized",
+      "es": "Optimizadas algunas funciones",
+      "fr": "Partie des fonctions optimisées",
+      "ja": "ゲーム動作改善",
+      "ko": "일부 기능을 최적화함",
+      "zh-Hans": "优化了部分功能",
+      "zh-Hant": "優化了部分功能"
+    },
+    "resource": {
+      "fileCheckListMd5": "b11000722c4d5e3d25e558f5392cf19e",
+      "md5": "c4e8805914fc4e91fba1aeb053c35983",
+      "path": "launcher/launcher/50004_obOHXFrFanqsaIEOmuKroCcbZkQRBC7c/G153/2.1.1.0/RoERUATxxQgSZzbRWFTpfFhEOPARGYZr/launcher.zip",
+      "size": 380680263,
+      "version": "2.1.1.0"
+    }
+  },
+  "experiment": {
+    "componentList": [
+      {
+        "Id": "KRWebViewRuntime",
+        "fileCheckListMd5": "852c066819f820fd02bc3634a831d9fa",
+        "md5": "28114c06a191aa4fd061c767183cea58",
+        "path": "launcher/environment/KRWebViewRuntime.zip",
+        "size": 249517572,
+        "version": "133.0.3065.59"
+      }
+    ]
+  },
+  "functionCode": {
+    "background": "P7PG7AwqLZYJ0YE9nyra9DX3KUCrmc06"
+  },
+  "resourcesGray": {
+    "graySwitch": 0
+  }
+}

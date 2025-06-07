@@ -1,0 +1,136 @@
+{
+  "RHIOptionList": [
+    {
+      "cmdOption": "-dx12",
+      "isShow": 0,
+      "text": {}
+    },
+    {
+      "cmdOption": "-dx11",
+      "isShow": 1,
+      "text": {
+        "de": "Start mit DX11 (bei Anomalie)",
+        "en": "Launch with DirectX 11 (in case of game anomalies)",
+        "es": "Iniciar con DirectX 11 (si hay problemas)",
+        "fr": "Démarrer en DX11 (à choisir en cas d'anomalie)",
+        "ja": "DX11で起動（不具合発生時に選択）",
+        "ko": "DX11로 시작하기 (게임 에러 시 선택)",
+        "zh-Hans": "使用DX11启动（游戏异常时选择）",
+        "zh-Hant": "使用DX11啟動（遊戲異常時選擇）"
+      }
+    }
+  ],
+  "RHIOptionSwitch": 1,
+  "checkExeIsRunning": 0,
+  "chunkDownloadSwitch": 0,
+  "default": {
+    "cdnList": [
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 150,
+        "url": "https://pcdownload-huoshan.aki-game.com/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 0,
+        "url": "https://pcdownload-qcloud.aki-game.com/"
+      }
+    ],
+    "changelog": {},
+    "changelogVisible": 0,
+    "config": {
+      "baseUrl": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/zip/",
+      "indexFile": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/resource/10008/2.4.0/indexFile.json",
+      "indexFileMd5": "8cf6fa282d659003df7f22713d1e990b",
+      "patchConfig": [
+        {
+          "baseUrl": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/zip/",
+          "ext": {
+            "maxFileSize": 0
+          },
+          "indexFile": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/resource/10008/2.4.0/2.2.1/indexFile.json",
+          "indexFileMd5": "1c6575e9a17008b9546d23fd0de2d561",
+          "size": 48123723139,
+          "unCompressSize": 48123723139,
+          "version": "2.2.1"
+        },
+        {
+          "baseUrl": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/resource/10008/2.4.0/2.2.2/resources/",
+          "ext": {
+            "maxFileSize": 42665362362
+          },
+          "indexFile": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/resource/10008/2.4.0/2.2.2/indexFile.json",
+          "indexFileMd5": "536f1c802851c69dcfe5d86aa1c10c7b",
+          "size": 42665362378,
+          "unCompressSize": 48123723123,
+          "version": "2.2.2"
+        },
+        {
+          "baseUrl": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/resource/10008/2.4.0/2.3.0/resources/",
+          "ext": {
+            "maxFileSize": 42270543240
+          },
+          "indexFile": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/resource/10008/2.4.0/2.3.0/indexFile.json",
+          "indexFileMd5": "4799336fae7b2ac3fd30a515e2ae994d",
+          "size": 42270543256,
+          "unCompressSize": 48062354509,
+          "version": "2.3.0"
+        }
+      ],
+      "patchType": "patch",
+      "size": 48520062817,
+      "unCompressSize": 48520062817,
+      "version": "2.4.0"
+    },
+    "resources": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/resource.json",
+    "resourcesBasePath": "launcher/game/G152/2.4.0/HVdrrqmYpgHuukuFXCpGIOJMqxDyCGjo/zip",
+    "resourcesDiff": {
+      "currentGameInfo": {
+        "fileName": "Wuthering Waves.zip",
+        "md5": "b911544f796cba741d4d14550be79444",
+        "version": "2.4.0"
+      },
+      "previousGameInfo": {
+        "fileName": "Wuthering Waves (2).zip",
+        "md5": "517883fde3db2d4f672fb05488138ddc",
+        "version": "2.3.0"
+      }
+    },
+    "resourcesExcludePath": [],
+    "resourcesExcludePathNeedUpdate": [],
+    "sampleHashSwitch": 0,
+    "version": "2.4.0"
+  },
+  "experiment": {
+    "download": {
+      "downloadCdnSelectTestDuration": "5000",
+      "downloadReadBlockTimeout": "30",
+      "enable_cdn_inteceptor": "1"
+    },
+    "res_check": {
+      "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe",
+      "fileChunkCheckSwitch": "1",
+      "fileSizeCheckSwitch": "1",
+      "resValidCheckTimeOut": "10"
+    }
+  },
+  "fingerprints": [
+    "b63333a20684cc947195443809114156e9e9cd07",
+    "9f03afee53588b763e37e897e575b88e2270d507"
+  ],
+  "hashCacheCheckAccSwitch": 1,
+  "keyFileCheckList": [
+    "Client/Binaries/Win64/Client-Win64-Shipping.exe",
+    "Client/Binaries/Win64/Client-Win64-ShippingBase.dll",
+    "Wuthering Waves.exe",
+    "Client/Binaries/Win64/ThirdParty/KrPcSdk_Mainland/KRSDKRes/KRSDKConfig.json"
+  ],
+  "keyFileCheckSwitch": 1,
+  "predownloadSwitch": 1,
+  "resourcesLogin": {
+    "host": "https://pc-launcher-sdk-api.kurogame.com",
+    "loginSwitch": 1
+  }
+}
