@@ -18,7 +18,8 @@
         ],
         "game_id": "G153",
         "unk_id": "50013",
-        "hash": "HiDX7UaJOXpKl3pigJwVxhg5z1wllus5"
+        "hash": "HiDX7UaJOXpKl3pigJwVxhg5z1wllus5",
+        "resources_protected": true
     },
     {
         "name": "cn-live",
@@ -38,7 +39,9 @@
         ],
         "game_id": "G152",
         "unk_id": "10008",
-        "hash": "Pa0Q0EMFxukjEqX33pF9Uyvdc8MaGPSz"
+        "hash": "Pa0Q0EMFxukjEqX33pF9Uyvdc8MaGPSz",
+        "resources_protected": true,
+        "authorize": true
     },
     {
         "name": "unknown-live",
