@@ -34,8 +34,26 @@
       {
         "K1": 1,
         "K2": 1,
+        "P": 6647,
+        "url": "https://hw-pcdownload-aws.aki-game.net/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 3768,
+        "url": "https://hw-pcdownload-akamai.aki-game.net/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
         "P": 0,
         "url": "https://pcdownload-huoshan.aki-game.net/"
+      },
+      {
+        "K1": 1,
+        "K2": 1,
+        "P": 150,
+        "url": "https://hw-pcdownload-aliyun.aki-game.net/"
       }
     ],
     "changelog": {},
