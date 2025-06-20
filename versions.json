@@ -40,8 +40,7 @@
         "game_id": "G152",
         "unk_id": "10008",
         "hash": "Pa0Q0EMFxukjEqX33pF9Uyvdc8MaGPSz",
-        "resources_protected": true,
-        "authorize": true
+        "resources_protected": true
     },
     {
         "name": "unknown-live",
