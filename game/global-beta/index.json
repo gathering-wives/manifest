@@ -122,6 +122,9 @@
     "version": "2.4.0"
   },
   "experiment": {
+    "apply": {
+      "applyMethodFeature": "group"
+    },
     "download": {
       "downloadCdnSelectTestDuration": "5000",
       "downloadReadBlockTimeout": "30",
