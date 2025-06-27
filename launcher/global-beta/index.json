@@ -44,11 +44,11 @@
       "zh-Hant": "優化了部分功能"
     },
     "resource": {
-      "fileCheckListMd5": "3709d355b9b2b271e78c0829460c0e5b",
-      "md5": "ca3cd12658abee3d798d7509203402c0",
-      "path": "launcher/launcher/50013_HiDX7UaJOXpKl3pigJwVxhg5z1wllus5/G153/2.1.2.0/VQYCJroqQJvvjgjjPsqDPqrgrqttclvk/launcher.zip",
-      "size": 380191993,
-      "version": "2.1.2.0"
+      "fileCheckListMd5": "4e2f1400a473e265c72502184510c128",
+      "md5": "dad62c3e6593325e2815e57c55b7e1c9",
+      "path": "launcher/launcher/50013_HiDX7UaJOXpKl3pigJwVxhg5z1wllus5/G153/2.2.0.0/UzskZnCgJBFcNwFPPmvYMYKvAGUDaXvm/launcher.zip",
+      "size": 392838080,
+      "version": "2.2.0.0"
     }
   },
   "experiment": {
