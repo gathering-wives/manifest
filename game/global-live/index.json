@@ -311,6 +311,10 @@
   ],
   "keyFileCheckSwitch": 1,
   "predownloadSwitch": 1,
+  "resourcesGray": {
+    "graySwitch": 1,
+    "grayUrl": "https://pc-launcher-gray-api.kurogame.net/launcher/gray"
+  },
   "resourcesLogin": {
     "host": "",
     "loginSwitch": 0
