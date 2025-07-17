@@ -1,13 +1,9 @@
 {
-  "version": "2.4.1",
+  "version": "2.4.3",
   "pak_keys": [
     {
       "key": "0x5CBD87A3E0279349C31DC795C2C46F362D8357DC2C483F842C4666BE083EC93B",
       "entropy": 3.793241
-    },
-    {
-      "key": "0xFF5123559EA782008978B82BE7022ED32FBBBF2F1701E8C75F4BECE1CA106D90",
-      "entropy": 3.812042
     }
   ],
   "net_keys": {
