@@ -25,11 +25,11 @@
       "zh-Hans": "优化了部分功能"
     },
     "resource": {
-      "fileCheckListMd5": "e3ed1f026066fb7e9c34b5b7190cd3d1",
-      "md5": "7bca02b4acd3c569733698b52f1c81f0",
-      "path": "launcher/launcher/10004_j5GWFuUFlb8N31Wi2uS3ZAVHcb7ZGN7y/G152/2.1.1.0/wVntwSvmoeFbSwIpqJHDwiGcxtzXcZAQ/launcher.zip",
-      "size": 380560431,
-      "version": "2.1.1.0"
+      "fileCheckListMd5": "991c5d5d708094727d95eb76bce77869",
+      "md5": "872ae9b016ad97f8c6fa07dd6708d47c",
+      "path": "launcher/launcher/10004_j5GWFuUFlb8N31Wi2uS3ZAVHcb7ZGN7y/G152/2.1.4.0/fHhNmjRvJislxdBXmewTaGONaatlQPWd/launcher.zip",
+      "size": 419021946,
+      "version": "2.1.4.0"
     }
   },
   "experiment": {
