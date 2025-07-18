@@ -48,6 +48,7 @@
     "background": "dXfzVWnk79B571iWsohcaWjdFkTWOKyN"
   },
   "resourcesGray": {
-    "graySwitch": 0
+    "graySwitch": 1,
+    "grayUrl": "https://pc-launcher-gray-api.kurogame.com/launcher/gray"
   }
 }
